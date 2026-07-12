@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul Sharma",
+    "age": 18,
+    "gender": "Boy",
+    "sport": "Cricket",
+    "phone": "9876543210"
+  },
+  {
+    "id": 2,
+    "name": "Priya Patil",
+    "age": 17,
+    "gender": "Girl",
+    "sport": "Badminton",
+    "phone": "9876543211"
+  },
+  {
+    "id": 3,
+    "name": "Arjun Singh",
+    "age": 19,
+    "gender": "Boy",
+    "sport": "Football",
+    "phone": "9876543212"
+  },
+  {
+    "id": 4,
+    "name": "Sneha Joshi",
+    "age": 16,
+    "gender": "Girl",
+    "sport": "Basketball",
+    "phone": "9876543213"
+  },
+  {
+    "id": 5,
+    "name": "Rohan Desai",
+    "age": 20,
+    "gender": "Boy",
+    "sport": "Kabaddi",
+    "phone": "9876543214"
+  },
+  {
+    "id": 6,
+    "name": "Aditi Kulkarni",
+    "age": 18,
+    "gender": "Girl",
+    "sport": "Volleyball",
+    "phone": "9876543215"
+  },
+  {
+    "id": 8,
+    "name": "Pooja Nair",
+    "age": 19,
+    "gender": "Girl",
+    "sport": "Swimming",
+    "phone": "9876543217"
+  },
+  {
+    "id": 10,
+    "name": "Neha Gupta",
+    "age": 17,
+    "gender": "Girl",
+    "sport": "Kho-Kho",
+    "phone": "9876543219"
+  },
+  {
+    "id": 11,
+    "name": "Siddharth Kumar",
+    "age": 19,
+    "gender": "Boy",
+    "sport": "Basketball",
+    "phone": "9876543220"
+  },
+  {
+    "id": 12,
+    "name": "Ananya Reddy",
+    "age": 18,
+    "gender": "Girl",
+    "sport": "Football",
+    "phone": "9876543221"
+  },
+  {
+    "name": "Soundarya Khande",
+    "age": "21",
+    "gender": "Girl",
+    "sport": "Kabaddi",
+    "phone": "9876543211",
+    "id": 13
+  }
+]

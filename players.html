@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Players</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏆 Sports Academy Management System</h1>
+        <p>Registered Players</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Register Player</a>
+        <a href="players.html">View Players</a>
+    </nav>
+
+    <div class="container">
+
+        <h2>Player List</h2>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search by Name or Sport..."
+            onkeyup="searchPlayer()"
+        >
+
+        <table id="playerTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Sport</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="playerBody">
+                <!-- Players will be loaded here -->
+            </tbody>
+        </table>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Sports Academy Management System</p>
+    </footer>
+
+    <script>
+        let players = [];
+
+        // Load all players
+        async function loadPlayers() {
+            try {
+                const response = await fetch("/players");
+                players = await response.json();
+
+                displayPlayers(players);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Display players in table
+        function displayPlayers(data) {
+            const body = document.getElementById("playerBody");
+            body.innerHTML = "";
+
+            if (data.length === 0) {
+                body.innerHTML = `
+                    <tr>
+                        <td colspan="7">No Players Found</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            data.forEach(player => {
+                body.innerHTML += `
+                    <tr>
+                        <td>${player.id}</td>
+                        <td>${player.name}</td>
+                        <td>${player.age}</td>
+                        <td>${player.gender}</td>
+                        <td>${player.sport}</td>
+                        <td>${player.phone}</td>
+                        <td>
+                            <button onclick="deletePlayer(${player.id})">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Search player
+        function searchPlayer() {
+            const value = document
+                .getElementById("search")
+                .value
+                .toLowerCase();
+
+            const filtered = players.filter(player =>
+                player.name.toLowerCase().includes(value) ||
+                player.sport.toLowerCase().includes(value)
+            );
+
+            displayPlayers(filtered);
+        }
+
+        // Delete player
+        async function deletePlayer(id) {
+
+            if (!confirm("Delete this player?")) return;
+
+            await fetch(`/players/${id}`, {
+                method: "DELETE"
+            });
+
+            loadPlayers();
+        }
+
+        loadPlayers();
+    </script>
+
+</body>
+</html>
